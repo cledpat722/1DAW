@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 603</title>
+    <link rel="stylesheet" type="text/css" href="formulario_tablas.css" />
+    <script>
+        function validarFormulario(){
+            
+            alert("ahora valido el formulario");
+            let correcto = false;
+            let checkboxes = document.getElementsByClassName("cb_obligatorio");
+            for (let i = 0;i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    correcto = true;
+                }
+            }
+            let etiqNombre = document.getElementById("nombre");
+            let valorEtiqNombre = etiqNombre.value;
+            if (5 > valorEtiqNombre.length || 100 < valorEtiqNombre.length){
+                alert("El nombre tiene que estar entre 5 y 100 caracteres");
+                correcto = false;
+            }
+
+
+            alert("ya he terminado de validar el resultado es: " + correcto);
+            return correcto;
+        }
+    </script>
+</head>
+
+<body>
+    <main>
+        <form name="formulario" action="#" method="get" onsubmit="return validarFormulario()">
+            <table id="tabla1">
+                <caption>CURRÍCULO</caption>
+                <tr>
+                    <th><label for="dni">DNI *</label></th>
+                    <th><label for="nombre">Nombre</label></th>
+                    <th><label for="direccion">Dirección</label></th>
+                </tr>
+                <tr>
+                    <td><input type="text" class="cb_obligatorio" name="dni" maxlength="9" size="9" required /></td>
+                    <td><input id="nombre" type="text" name="nombre" value="introduce nombre" required/></td>
+                    <td><input type="text" name="direccion" /></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <th id="prueba">Estado Civil</th>
+                    <th>Experiencia Laboral</th>
+                    <th>Idiomas</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <input type="radio" name="ec" value="soltero" checked="checked"><label for="ec">Soltero</label></input>
+                            <br />
+                            <input type="radio" name="ec" value="casado"><label for="ec">Casado</label></input>
+                            <br />
+                            <input type="radio" name="ec" value="viudo"><label for="ec">Viudo</label></input>
+                            <br />
+                            <input type="radio" name="ec" value="divorciado"><label for="ec">Divorciado</label></input>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <input type="checkbox" class="cb_obligatorio" name="construccion" value="construccion"><label for="construccion">Construcción</label></input>
+                            <br />
+                            <input type="checkbox" class="cb_obligatorio" name="administracion" value="administracion"><label for="administracion">Administración</label></input>
+                            <br />
+                            <input type="checkbox" class="cb_obligatorio" name="hosteleria" value="hosteleria"><label for="hosteleria">Hostelería</label</input>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <input type="checkbox" name="ingles" value="ingles" checked><label for="ingles">Inglés</label></input>
+                            <br />
+                            <input type="checkbox" name="frances" value="frances"><label for="frances">Francés</label></input>
+                            <br />
+                            <input type="checkbox" name="aleman" value="aleman"><label for="aleman">Alemán</label</input>
+                            <br />
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
+            <br />
+            <table id="tabla2">
+                <tr>
+                    <td>
+                        <input type="submit" name="Aceptar" value="Aceptar" />
+                    </td>
+                    <td>
+                        <input type="reset" name="Cancelar" value="Cancelar" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </main>
+</body>
+
+</html>

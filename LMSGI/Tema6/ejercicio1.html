@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html>
+  <head>
+	<meta charset="utf-8"/>
+	<title>Contacto</title>
+    <link rel="stylesheet" type="text/css" href="ejercicio.css"/>
+  </head>
+
+  <body>
+	<header>
+		<img src="imagen.png" />
+ 	      <h1>TITULO</h1>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#">Quiénes somos</a></li>
+			<li><a href="#">Servicios</a></li>
+			<li><a href="#">Contacto</a></li>
+		</ul>
+	</nav>
+
+	
+
+	<div id="contenido">
+	<div id="titulo">
+		<h2>Contacto</h2>
+	</div>
+	<section>
+		<form method="post">
+			<fieldset>
+				<legend>Datos personales</legend>
+				Nombre: <input type="text" name="nombre" size="38" placeholder="Su nombre"title="Escriba su nombre para poder referirnos a usted correctamente."autofocus autocomplete><br>
+				Correo electrónico: <input type="email" name="mail" size="28" title="Escriba su correo electrónico para poder comunicarnos con usted lo antes posible." placeholder="nombre@servidor.com"required autocomplete><br>
+			</fieldset>
+
+			<fieldset>
+				<legend>Datos del proyecto</legend>
+				Breve descripción del proyecto:<br>
+				<textarea name="descripcion"></textarea><p>
+				Estado actual del proyecto:<br>
+				<input type="radio" name="proceso" value="sinplantear" checked/> En planteamiento
+				<input type="radio" name="proceso" value="enplanificacion"/> En planificación
+				<input type="radio" name="proceso" value="enejecucion"/> En ejecución
+				<input type="radio" name="proceso" value="finalizado"/> Ya finalizado<p>
+				Presupuesto aproximado (en €):  
+				<input type="number" name="presupuesto" value="1000" min="150" max="30000" step="50">
+			</fieldset>
+			<input id="boton_enviar" type="submit" value="Enviar">
+
+
+		</form>
+		
+	</section>
+	</div>
+	<div id="franja_final"></div>
+	<footer>
+ 	      &copy; 2015. Aprende jugando, S.L.<br>
+ 	      c/ del Álamo verde, 1, local. Barcelona.
+	</footer>
+  </body>
+</html>
