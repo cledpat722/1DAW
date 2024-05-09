@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  title: Modulo 2. Lección 2
+  description: Plantear distintos Endpoints para el siguiente modelo de datos. Documentarlo con OpenAPI (Swagger)
+  version: 1.0.0
+paths:
+  /projects:
+    get:
+      summary: Obtiene todos los proyectos
+      responses:
+        200:
+          description: Lista de proyectos obtenida correctamente
+    post:
+      summary: Crea un nuevo proyecto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                description:
+                  type: string
+                language:
+                  type: string
+                open:
+                  type: boolean
+      responses:
+        201:
+          description: Proyecto creado correctamente
+
+  /projects/{projectId}:
+    get:
+      summary: Obtiene un proyecto por su ID
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Proyecto obtenido correctamente
+    
+    put:
+      summary: Actualiza un proyecto ya creado
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                description:
+                  type: string
+                language:
+                  type: string
+                open:
+                  type: boolean
+      responses:
+        200:
+          description: Proyecto actualizado correctamente
+    delete:
+      summary: Elimina un proyecto por su ID
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        204:
+          description: Proyecto eliminado correctamente
+
+  /projects/{projectId}/code:
+    get:
+      summary: Obtiene el código del proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Código del proyecto obtenido correctamente
+
+  /projects/{projectId}/detail:
+    get:
+      summary: Obtiene los detalles del proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Detalles del proyecto obtenidos correctamente
+
+  /projects/{projectId}/user:
+    get:
+      summary: Obtiene los usuarios relacionados con el proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Usuarios relacionados con el proyecto obtenidos correctamente
+          
+  /projects/{projectId}/tag:
+    get:
+      summary: Obtiene las etiquetas relacionadas con el proyecto
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Etiquetas relacionadas con el proyecto obtenidas correctamente
+  /users:
+    post:
+      summary: Crea un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                nick:
+                  type: string
+                name:
+                  type: string
+                
+      responses:
+        201:
+          description: Usuario creado correctamente
+          
+    get:
+      summary: Obtiene todos los usuarios
+      responses:
+        200:
+          description: Lista de usuarios obtenida correctamente
+      
+  /user/{userId}: 
+    get:
+      summary: Obtiene un usuario por su ID
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Usuario obtenido correctamente
+    put:
+      summary: Actualiza un usuario ya creado
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: integer
+                nick:
+                  type: string
+                name:
+                  type: string
+      responses:
+        200:
+          description: Usuario actualizado correctamente
+          
+    delete:
+      summary: Elimina un usuario por su ID
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+      responses:
+        204:
+          description: Usuario eliminado correctamente
+  
